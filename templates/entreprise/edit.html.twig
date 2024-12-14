@@ -1,0 +1,16 @@
+{# templates/entreprise/edit.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'entreprise{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'entreprise</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.gestionnaire) }}
+        <button class="btn">Enregistrer</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('entreprise_index') }}">Retour à la liste</a>
+{% endblock %}

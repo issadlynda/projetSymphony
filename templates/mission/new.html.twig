@@ -1,0 +1,22 @@
+{# templates/mission/create.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Créer une nouvelle mission</title>
+</head>
+<body>
+    <h1>Créer une nouvelle mission</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.titre, {'label': 'Titre de la mission'}) }}
+        {{ form_row(form.description, {'label': 'Description'}) }}
+        {{ form_row(form.tauxJounalierMoyen, {'label': 'Taux Journalier Moyen (TJM)'}) }}
+        {{ form_row(form.dateDebut, {'label': 'Date de début'}) }}
+        {{ form_row(form.datefin, {'label': 'Date de fin'}) }}
+        {{ form_row(form.createur, {'label': 'Créateur'}) }}
+        
+        <button type="submit">Créer la mission</button>
+    {{ form_end(form) }}
+</body>
+</html>

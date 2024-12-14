@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Missions{% endblock %}
+
+{% block body %}
+<h1>Liste des missions</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for mission in missions %}
+            <tr>
+                <td>{{ mission.titre }}</td>
+                <td>{{ mission.description }}</td>
+                <td>
+                    <a href="{{ path('mission_show', {'id': mission.id}) }}">Voir</a>
+                    <a href="{{ path('mission_edit', {'id': mission.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{# templates/personnel/new.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Créer un nouveau personnel</title>
+</head>
+<body>
+    <h1>Créer un nouveau personnel</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.role) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.entreprise) }}  {# Affiche le champ pour sélectionner l'entreprise #}
+        
+        <button type="submit">Créer le personnel</button>
+    {{ form_end(form) }}
+</body>
+</html>

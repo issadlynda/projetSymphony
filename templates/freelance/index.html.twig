@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Freelances{% endblock %}
+
+{% block body %}
+<h1>Liste des freelances</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Expertise</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for freelance in freelances %}
+            <tr>
+                <td>{{ freelance.nom }}</td>
+                <td>{{ freelance.expertise }}</td>
+                <td>
+                    <a href="{{ path('freelance_show', {'id': freelance.id}) }}">Voir</a>
+                    <a href="{{ path('freelance_edit', {'id': freelance.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

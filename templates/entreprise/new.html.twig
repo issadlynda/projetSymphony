@@ -1,0 +1,10 @@
+{# templates/user/new.html.twig #}
+
+<h1>Créer Entreprise</h1>
+
+{{ form_start(form) }}
+    {{ form_row(form.nom) }}
+    {{ form_row(form.gestionnaire) }}
+
+    <button type="submit">Créer</button>
+{{ form_end(form) }}

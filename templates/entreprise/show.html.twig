@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'entreprise{% endblock %}
+
+{% block body %}
+<h1>Détails de l'entreprise</h1>
+
+<table>
+    <tr>
+        <th>Nom</th>
+        <td>{{ entreprise.nom }}</td>
+    </tr>
+    <tr>
+        <th>Gestionnaire</th>
+        <td>{{ entreprise.gestionnaire.nom }}</td>
+    </tr>
+</table>
+
+<a href="{{ path('entreprise_edit', {'id': entreprise.id}) }}">Modifier</a>
+{% endblock %}
