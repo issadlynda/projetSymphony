@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des utilisateurs</title>
+</head>
+<body>
+
+    {# Bloc pour la liste des utilisateurs #}
+    <h1>Liste des utilisateurs</h1>
+    
+    <ul>
+        {% for user in users %}
+            <li>
+                <a href="{{ path('app_user_show', {'id': user.id}) }}">{{ user.email }}</a>
+                <form action="{{ path('app_user_delete', {'id': user.id}) }}" method="post" style="display:inline;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </li>
+        {% else %}
+            <p>Aucun utilisateur trouvé.</p>
+        {% endfor %}
+    </ul>
+
+    {# Bloc pour le formulaire de création ou modification d'un utilisateur #}
+    {% if form is defined %}
+        <h2>{{ user.id ? 'Modifier' : 'Créer' }} un utilisateur</h2>
+
+        {{ form_start(form) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.password) }}
+            {{ form_row(form.submit) }}
+        {{ form_end(form) }}
+    {% endif %}
+
+    {# Liens pour les différentes actions #}
+    <a href="{{ path('app_user_new') }}">Créer un nouvel utilisateur</a>
+
+</body>
+</html>
